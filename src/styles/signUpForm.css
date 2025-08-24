@@ -1,0 +1,303 @@
+/* --------------------------
+   Reset and base styles
+   --------------------------
+   - Resets margin/padding for all elements
+   - Sets border-box for predictable sizing
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------------
+   Main container
+   --------------------------
+   - Centers form both vertically and horizontally
+   - Sets full viewport height
+   - Background color is white for clean look
+*/
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: white;
+}
+
+/* --------------------------
+   Form container
+   --------------------------
+   - Max-width ensures form is readable on large screens
+   - Padding provides spacing inside form
+   - Flex layout for vertical stacking
+*/
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* --------------------------
+   Header with brand
+   --------------------------
+   - Flex alignment with gap between elements
+   - Centered horizontally
+*/
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.brand-title {
+  color: rgb(196, 38, 91);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Pink circle icon for branding */
+.brand-mark {
+  color: rgb(222, 38, 100);
+  font-size: 1.2rem;
+}
+
+/* --------------------------
+   Navigation tabs
+   --------------------------
+   - Flex layout for equal-width tabs
+   - Clear active state with color and bottom border
+*/
+.form-nav {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  color: #666;
+}
+
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: rgb(222, 38, 100);
+  border-bottom-color: rgb(222, 38, 100);
+  font-weight: 600;
+}
+
+/* Hover state for inactive tabs */
+.nav-link:not(.active):not([aria-current="page"]):hover {
+  color: rgb(222, 38, 100);
+}
+
+/* --------------------------
+   Form styling
+   --------------------------
+   - Vertical stacking of fields
+   - Gap between form items for spacing
+*/
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  padding: 0.6rem 0;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-bottom-color: rgb(222, 38, 100);
+}
+
+/* Error state for inputs */
+.form-group input.error {
+  border-bottom-color: #ef4444;
+}
+
+/* --------------------------
+   Form options (checkboxes)
+   --------------------------
+   - Flex alignment for label and checkbox
+   - Accessible cursor and spacing
+*/
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: rgb(222, 38, 100);
+}
+
+/* --------------------------
+   Submit button
+   --------------------------
+   - Clear call-to-action
+   - Visual feedback on hover/active
+   - Disabled state for UX during submission
+*/
+.submit-button {
+  background: rgb(222, 38, 100);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: rgb(196, 38, 91);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(222, 38, 100, 0.3);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; 
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --------------------------
+   Error messages
+   --------------------------
+   - Accessible colors
+   - Distinct background for visibility
+*/
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* --------------------------
+   Footer social icons
+   --------------------------
+   - Flex layout for horizontal alignment
+   - Hover effects with subtle background for interactivity
+*/
+.form-footer {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.social-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-nav a {
+  color: rgb(222, 38, 100);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.social-nav a:hover {
+  color: rgb(196, 38, 91);
+  background: rgba(222, 38, 100, 0.1);
+  transform: translateY(-2px);
+}
+
+/* --------------------------
+   Responsive adjustments
+   --------------------------
+   - Maintain readability on tablets and smaller devices
+*/
+@media (max-width: 768px) {
+  .login-page {
+    padding: 1rem;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.5rem;
+  }
+
+  .form-nav {
+    margin-bottom: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

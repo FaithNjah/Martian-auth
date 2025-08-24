@@ -1,0 +1,280 @@
+/* ====================
+   Reset & base styles
+   ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====================
+   Main container
+   Centers the form on screen
+   ==================== */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: #fdfdfd; /* soft background */
+}
+
+/* ====================
+   Form container
+   ==================== */
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+}
+
+/* ====================
+   Header (Brand)
+   ==================== */
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.brand-title {
+  color: rgb(196, 38, 91);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.brand-mark {
+  color: rgb(222, 38, 100);
+  font-size: 1.2rem;
+}
+
+/* ====================
+   Navigation tabs (Sign In / Sign Up)
+   ==================== */
+.form-nav {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  color: #666;
+}
+
+/* Active tab styling */
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: rgb(222, 38, 100);
+  border-bottom-color: rgb(222, 38, 100);
+  font-weight: 600;
+}
+
+/* Hover for inactive tabs */
+.nav-link:not(.active):not([aria-current="page"]):hover {
+  color: rgb(222, 38, 100);
+}
+
+/* ====================
+   Form styling
+   ==================== */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+.form-group input {
+  padding: 0.6rem 0;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+/* Focus state */
+.form-group input:focus {
+  border-bottom-color: rgb(222, 38, 100);
+}
+
+/* Error state */
+.form-group input.error {
+  border-bottom-color: #ef4444;
+}
+
+/* ====================
+   Form options row
+   Remember me checkbox & forgot password link
+   ==================== */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: rgb(222, 38, 100);
+}
+
+.forgot-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: rgb(222, 38, 100);
+}
+
+/* ====================
+   Submit button
+   ==================== */
+.submit-button {
+  background: rgb(222, 38, 100);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.8rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: rgb(196, 38, 91);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(222, 38, 100, 0.3);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ====================
+   Error messages
+   ==================== */
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* ====================
+   Footer & social links
+   ==================== */
+.form-footer {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.social-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-nav a {
+  color: rgb(222, 38, 100);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.social-nav a:hover {
+  color: rgb(196, 38, 91);
+  background: rgba(222, 38, 100, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ====================
+   Responsive styles
+   ==================== */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-right {
+    padding: 1rem;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.5rem;
+  }
+
+  .form-nav {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

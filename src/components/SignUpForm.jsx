@@ -4,11 +4,8 @@ import { faTwitter, faFacebook, faInstagram, faYoutube } from "@fortawesome/free
 import { Link } from "react-router-dom";
 import "../styles/signUpForm.css";
 
-// --------------------------
 // Validation helpers
-// --------------------------
-// Pure functions to handle field validation. Keeps validation logic separate
-// from UI and allows for easier testing and reuse.
+
 function validateName(name) {
   if (!name) return "Full name is required";
   if (name.length < 2) return "Name must be at least 2 characters";
@@ -27,10 +24,9 @@ function validatePassword(password) {
   return "";
 }
 
-// --------------------------
+
 // Mock API simulation
-// --------------------------
-// Simulates backend response. In production, this would call a real API.
+
 async function signUpUser(name, email, password) {
   await new Promise((r) => setTimeout(r, 1000));
 
@@ -45,17 +41,16 @@ async function signUpUser(name, email, password) {
 }
 
 const SignUpForm = () => {
-  // --------------------------
+
   // Component state
-  // --------------------------
+  
   const [formData, setFormData] = useState({ name: "", email: "", password: "", terms: false });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // --------------------------
-  // Field-level blur validation
-  // --------------------------
+  //  Vlidation
+
   const handleBlur = (field) => {
     let message = "";
     if (field === "name") message = validateName(formData.name);
@@ -65,10 +60,7 @@ const SignUpForm = () => {
     setErrors((prev) => ({ ...prev, [field]: message }));
   };
 
-  // --------------------------
-  // Generic input change handler
-  // --------------------------
-  // Updates form data and clears error for the field if any.
+
   const handleChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
     if (errors[field]) {
@@ -76,9 +68,8 @@ const SignUpForm = () => {
     }
   };
 
-  // --------------------------
+
   // Form submission
-  // --------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -103,20 +94,20 @@ const SignUpForm = () => {
     setErrors({});
 
     try {
-      // Attempt signup
+    
       await signUpUser(formData.name, formData.email, formData.password);
       setIsSuccess(true);
     } catch (err) {
-      // Handle API-level or network errors
+      
       setErrors({ general: err.message });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // --------------------------
+
   // Success state rendering
-  // --------------------------
+ 
   if (isSuccess) {
     return (
       <div className="login-page">
@@ -132,9 +123,9 @@ const SignUpForm = () => {
     );
   }
 
-  // --------------------------
+
   // Main signup form
-  // --------------------------
+ 
   return (
     <div className="login-page">
       <main className="login-right" aria-label="Authentication section">
@@ -155,7 +146,6 @@ const SignUpForm = () => {
 
         {/* Form */}
         <form className="login-form" onSubmit={handleSubmit} noValidate>
-          {/* General errors */}
           {errors.general && (
             <div className="error-message" role="alert" aria-live="polite">
               {errors.general}

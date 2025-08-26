@@ -1,22 +1,11 @@
-/* --------------------------
-   Reset and base styles
-   --------------------------
-   - Resets margin/padding for all elements
-   - Sets border-box for predictable sizing
-*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --------------------------
-   Main container
-   --------------------------
-   - Centers form both vertically and horizontally
-   - Sets full viewport height
-   - Background color is white for clean look
-*/
+
 .login-page {
   display: flex;
   justify-content: center;
@@ -26,13 +15,7 @@
   background: white;
 }
 
-/* --------------------------
-   Form container
-   --------------------------
-   - Max-width ensures form is readable on large screens
-   - Padding provides spacing inside form
-   - Flex layout for vertical stacking
-*/
+
 .login-right {
   display: flex;
   flex-direction: column;
@@ -43,12 +26,7 @@
   max-width: 400px;
 }
 
-/* --------------------------
-   Header with brand
-   --------------------------
-   - Flex alignment with gap between elements
-   - Centered horizontally
-*/
+
 .form-header {
   display: flex;
   align-items: center;
@@ -65,12 +43,6 @@
 }
 
 
-/* --------------------------
-   Navigation tabs
-   --------------------------
-   - Flex layout for equal-width tabs
-   - Clear active state with color and bottom border
-*/
 .form-nav {
   display: flex;
   width: 100%;
@@ -96,17 +68,11 @@
   font-weight: 600;
 }
 
-/* Hover state for inactive tabs */
 .nav-link:not(.active):not([aria-current="page"]):hover {
   color: rgb(222, 38, 100);
 }
 
-/* --------------------------
-   Form styling
-   --------------------------
-   - Vertical stacking of fields
-   - Gap between form items for spacing
-*/
+
 .login-form {
   width: 100%;
   display: flex;
@@ -141,17 +107,12 @@
   border-bottom-color: rgb(222, 38, 100);
 }
 
-/* Error state for inputs */
+
 .form-group input.error {
   border-bottom-color: #ef4444;
 }
 
-/* --------------------------
-   Form options (checkboxes)
-   --------------------------
-   - Flex alignment for label and checkbox
-   - Accessible cursor and spacing
-*/
+
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -171,13 +132,7 @@
   accent-color: rgb(222, 38, 100);
 }
 
-/* --------------------------
-   Submit button
-   --------------------------
-   - Clear call-to-action
-   - Visual feedback on hover/active
-   - Disabled state for UX during submission
-*/
+
 .submit-button {
   background: rgb(222, 38, 100);
   color: white;
@@ -215,12 +170,7 @@
   padding: 2rem;
 }
 
-/* --------------------------
-   Error messages
-   --------------------------
-   - Accessible colors
-   - Distinct background for visibility
-*/
+
 .error-message {
   background: #fef2f2;
   border: 1px solid #fecaca;
@@ -237,12 +187,7 @@
   margin-top: 0.25rem;
 }
 
-/* --------------------------
-   Footer social icons
-   --------------------------
-   - Flex layout for horizontal alignment
-   - Hover effects with subtle background for interactivity
-*/
+
 .form-footer {
   margin-top: 1rem;
   width: 100%;
@@ -269,11 +214,9 @@
   transform: translateY(-2px);
 }
 
-/* --------------------------
-   Responsive adjustments
-   --------------------------
-   - Maintain readability on tablets and smaller devices
-*/
+
+   /* Responsive adjustments */
+
 @media (max-width: 768px) {
   .login-page {
     padding: 1rem;

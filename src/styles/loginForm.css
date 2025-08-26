@@ -1,28 +1,21 @@
-/* ====================
-   Reset & base styles
-   ==================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ====================
-   Main container
-   Centers the form on screen
-   ==================== */
+
 .login-page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  background: #fdfdfd; /* soft background */
+  background: #fdfdfd; 
 }
 
-/* ====================
-   Form container
-   ==================== */
+
 .login-right {
   display: flex;
   flex-direction: column;
@@ -36,9 +29,7 @@
   max-width: 450px;
 }
 
-/* ====================
-   Header (Brand)
-   ==================== */
+
 .form-header {
   display: flex;
   align-items: center;
@@ -53,9 +44,7 @@
   font-weight: 600;
 }
 
-/* ====================
-   Navigation tabs (Sign In / Sign Up)
-   ==================== */
+
 .form-nav {
   display: flex;
   width: 100%;
@@ -75,7 +64,7 @@
   color: #666;
 }
 
-/* Active tab styling */
+
 .nav-link.active,
 .nav-link[aria-current="page"] {
   color: rgb(222, 38, 100);
@@ -83,14 +72,12 @@
   font-weight: 600;
 }
 
-/* Hover for inactive tabs */
+
 .nav-link:not(.active):not([aria-current="page"]):hover {
   color: rgb(222, 38, 100);
 }
 
-/* ====================
-   Form styling
-   ==================== */
+
 .login-form {
   width: 100%;
   display: flex;
@@ -109,7 +96,7 @@
   color: #333;
 }
 
-/* Inputs */
+
 .form-group input {
   padding: 0.6rem 0;
   border: none;
@@ -120,20 +107,17 @@
   outline: none;
 }
 
-/* Focus state */
+
 .form-group input:focus {
   border-bottom-color: rgb(222, 38, 100);
 }
 
-/* Error state */
+
 .form-group input.error {
   border-bottom-color: #ef4444;
 }
 
-/* ====================
-   Form options row
-   Remember me checkbox & forgot password link
-   ==================== */
+
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -164,9 +148,7 @@
   color: rgb(222, 38, 100);
 }
 
-/* ====================
-   Submit button
-   ==================== */
+
 .submit-button {
   background: rgb(222, 38, 100);
   color: white;
@@ -196,9 +178,6 @@
   transform: none;
 }
 
-/* ====================
-   Error messages
-   ==================== */
 .error-message {
   background: #fef2f2;
   border: 1px solid #fecaca;
@@ -215,9 +194,7 @@
   margin-top: 0.25rem;
 }
 
-/* ====================
-   Footer & social links
-   ==================== */
+
 .form-footer {
   margin-top: 1.5rem;
   width: 100%;
@@ -244,9 +221,9 @@
   transform: translateY(-2px);
 }
 
-/* ====================
-   Responsive styles
-   ==================== */
+
+   /* Responsive styles */
+
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column;

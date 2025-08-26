@@ -4,10 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import "../styles/loginForm.css";
 
-// ====================
-// Validation helpers
-// ====================
-
 // Validate email format and presence
 function validateEmail(email) {
   if (!email) return "Email is required";
@@ -21,11 +17,8 @@ function validatePassword(password) {
   if (password.length < 6) return "At least 6 characters required";
   return "";
 }
-
-// ====================
 // Mock login API
-// ====================
-// Simulates a login request with network error and demo credentials
+
 async function loginUser(email, password) {
   await new Promise((r) => setTimeout(r, 1000)); // simulate network delay
 
@@ -40,9 +33,9 @@ async function loginUser(email, password) {
   throw new Error("Invalid email or password");
 }
 
-// ====================
+
 // Login Form Component
-// ====================
+
 const LoginForm = () => {
   // Form state
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -50,9 +43,8 @@ const LoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // --------------------
   // Input event handlers
-  // --------------------
+ 
   const handleBlur = (field) => {
     let message = "";
     if (field === "email") message = validateEmail(formData.email);
@@ -71,12 +63,11 @@ const LoginForm = () => {
     setErrors((prev) => ({ ...prev, [field]: message }));
   };
 
-  // --------------------
   // Form submission
-  // --------------------
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return; // prevent double submits
+    if (isSubmitting) return; 
 
     const emailError = validateEmail(formData.email);
     const passwordError = validatePassword(formData.password);
@@ -99,9 +90,8 @@ const LoginForm = () => {
     }
   };
 
-  // ====================
-  // Success state UI
-  // ====================
+  
+  // Success state UI 
   if (isSuccess) {
     return (
       <div className="login-page">
@@ -124,9 +114,8 @@ const LoginForm = () => {
     );
   }
 
-  // ====================
+  
   // Login form UI
-  // ====================
   return (
     <div className="login-page">
       <main className="login-right" aria-label="Authentication section">

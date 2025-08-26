@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import "../styles/loginForm.css";
 
@@ -108,7 +107,7 @@ const LoginForm = () => {
       <div className="login-page">
         <main className="login-right" aria-live="polite">
           <div className="success-state">
-            <h2>Welcome back! 🎉</h2>
+            <h2>Welcome back! </h2>
             <p>You have successfully signed in to Martians Spa.</p>
             <button
               onClick={() => {
@@ -133,10 +132,7 @@ const LoginForm = () => {
       <main className="login-right" aria-label="Authentication section">
         {/* Brand header */}
         <header className="form-header">
-          <h1 className="brand-title">Martians Spa</h1>
-          <span className="brand-mark" aria-hidden="true">
-            <FontAwesomeIcon icon={faCircle} />
-          </span>
+          <h1 className="brand-title">Auth</h1>
         </header>
 
         {/* Navigation between Sign In / Sign Up */}

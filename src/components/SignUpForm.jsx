@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import "../styles/signUpForm.css";
@@ -141,10 +140,7 @@ const SignUpForm = () => {
       <main className="login-right" aria-label="Authentication section">
         {/* Header */}
         <header className="form-header">
-          <h1 className="brand-title">Martians Spa</h1>
-          <span className="brand-mark" aria-hidden="true">
-            <FontAwesomeIcon icon={faCircle} />
-          </span>
+          <h1 className="brand-title">Auth</h1>
         </header>
 
         {/* Navigation between auth routes */}

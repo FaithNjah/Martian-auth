@@ -4,30 +4,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import "../styles/loginForm.css";
 
-// --------------------------
+// ====================
 // Validation helpers
-// --------------------------
-// Pure validation functions for email/password fields.
-// Keeps UI separate from business logic and allows reuse.
+// ====================
+
+// Validate email format and presence
 function validateEmail(email) {
   if (!email) return "Email is required";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Enter a valid email";
   return "";
 }
 
+// Validate password presence and minimum length
 function validatePassword(password) {
   if (!password) return "Password is required";
   if (password.length < 6) return "At least 6 characters required";
   return "";
 }
 
-// --------------------------
-// Mock API simulation
-// --------------------------
-// Simulates server-side login with basic error handling.
-// In production, replace with a real `fetch` or API call.
+// ====================
+// Mock login API
+// ====================
+// Simulates a login request with network error and demo credentials
 async function loginUser(email, password) {
-  await new Promise((r) => setTimeout(r, 1000)); // simulate latency
+  await new Promise((r) => setTimeout(r, 1000)); // simulate network delay
 
   if (email === "error@test.com") {
     throw new Error("Network error, try again later.");
@@ -40,21 +40,19 @@ async function loginUser(email, password) {
   throw new Error("Invalid email or password");
 }
 
-// --------------------------
+// ====================
 // Login Form Component
-// --------------------------
+// ====================
 const LoginForm = () => {
-  // --------------------------
-  // Component state
-  // --------------------------
+  // Form state
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // --------------------------
-  // Field-level validation
-  // --------------------------
+  // --------------------
+  // Input event handlers
+  // --------------------
   const handleBlur = (field) => {
     let message = "";
     if (field === "email") message = validateEmail(formData.email);
@@ -63,22 +61,23 @@ const LoginForm = () => {
     setErrors((prev) => ({ ...prev, [field]: message }));
   };
 
-  // Clears error as user types if fixed
   const handleChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
-    if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: "" }));
-    }
+
+    // Validate field on change and clear error if fixed
+    let message = "";
+    if (field === "email") message = validateEmail(value);
+    if (field === "password") message = validatePassword(value);
+    setErrors((prev) => ({ ...prev, [field]: message }));
   };
 
-  // --------------------------
+  // --------------------
   // Form submission
-  // --------------------------
+  // --------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return; // prevents double submit
+    if (isSubmitting) return; // prevent double submits
 
-    // Validate before sending request
     const emailError = validateEmail(formData.email);
     const passwordError = validatePassword(formData.password);
 
@@ -91,26 +90,24 @@ const LoginForm = () => {
     setErrors({});
 
     try {
-      // Attempt login
       await loginUser(formData.email, formData.password);
       setIsSuccess(true);
     } catch (err) {
-      // Handles both API errors and network issues
       setErrors({ general: err.message });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // --------------------------
-  // Success state rendering
-  // --------------------------
+  // ====================
+  // Success state UI
+  // ====================
   if (isSuccess) {
     return (
       <div className="login-page">
         <main className="login-right" aria-live="polite">
           <div className="success-state">
-            <h2>Welcome back!</h2>
+            <h2>Welcome back! </h2>
             <p>You have successfully signed in to Martians Spa.</p>
             <button
               onClick={() => {
@@ -127,9 +124,9 @@ const LoginForm = () => {
     );
   }
 
-  // --------------------------
-  // Main login form
-  // --------------------------
+  // ====================
+  // Login form UI
+  // ====================
   return (
     <div className="login-page">
       <main className="login-right" aria-label="Authentication section">
@@ -148,16 +145,15 @@ const LoginForm = () => {
           </Link>
         </nav>
 
-        {/* Form */}
+        {/* Form fields */}
         <form className="login-form" onSubmit={handleSubmit} noValidate>
-          {/* General errors */}
           {errors.general && (
             <div className="error-message" role="alert" aria-live="polite">
               {errors.general}
             </div>
           )}
 
-          {/* Email field */}
+          {/* Email input */}
           <div className={`form-group ${errors.email ? "error" : ""}`}>
             <label htmlFor="email">Email</label>
             <input
@@ -170,12 +166,11 @@ const LoginForm = () => {
               autoComplete="email"
               required
               disabled={isSubmitting}
-              aria-invalid={!!errors.email}
             />
             {errors.email && <span className="error-text" role="alert">{errors.email}</span>}
           </div>
 
-          {/* Password field */}
+          {/* Password input */}
           <div className={`form-group ${errors.password ? "error" : ""}`}>
             <label htmlFor="password">Password</label>
             <input
@@ -188,12 +183,11 @@ const LoginForm = () => {
               autoComplete="current-password"
               required
               disabled={isSubmitting}
-              aria-invalid={!!errors.password}
             />
             {errors.password && <span className="error-text" role="alert">{errors.password}</span>}
           </div>
 
-          {/* Options: remember me & forgot password */}
+          {/* Form options */}
           <div className="form-options">
             <label className="remember-me">
               <input type="checkbox" name="remember" disabled={isSubmitting} /> Remember me
@@ -203,13 +197,13 @@ const LoginForm = () => {
             </a>
           </div>
 
-          {/* Submit */}
+          {/* Submit button */}
           <button type="submit" className="submit-button" disabled={isSubmitting}>
             {isSubmitting ? "Signing In..." : "Sign In"}
           </button>
         </form>
 
-        {/* Social media footer */}
+        {/* Social media links */}
         <footer className="form-footer">
           <nav className="social-nav" aria-label="Social media">
             <a href="https://twitter.com" aria-label="Twitter">

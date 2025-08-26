@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Martian-auth/static/css/main.104cd4db.css",
-    "main.js": "/Martian-auth/static/js/main.c210effc.js",
+    "main.css": "/Martian-auth/static/css/main.6248859d.css",
+    "main.js": "/Martian-auth/static/js/main.4fdf8103.js",
     "static/js/453.9bd3d817.chunk.js": "/Martian-auth/static/js/453.9bd3d817.chunk.js",
     "index.html": "/Martian-auth/index.html",
-    "main.104cd4db.css.map": "/Martian-auth/static/css/main.104cd4db.css.map",
-    "main.c210effc.js.map": "/Martian-auth/static/js/main.c210effc.js.map",
+    "main.6248859d.css.map": "/Martian-auth/static/css/main.6248859d.css.map",
+    "main.4fdf8103.js.map": "/Martian-auth/static/js/main.4fdf8103.js.map",
     "453.9bd3d817.chunk.js.map": "/Martian-auth/static/js/453.9bd3d817.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.104cd4db.css",
-    "static/js/main.c210effc.js"
+    "static/css/main.6248859d.css",
+    "static/js/main.4fdf8103.js"
   ]
 }

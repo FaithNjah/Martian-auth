@@ -173,6 +173,7 @@ const SignUpForm = () => {
               onChange={(e) => handleChange("name", e.target.value)}
               onBlur={() => handleBlur("name")}
               autoComplete="name"
+              aria-invalid={!!errors.name}
               required
               disabled={isSubmitting}
             />
@@ -190,6 +191,7 @@ const SignUpForm = () => {
               onChange={(e) => handleChange("email", e.target.value)}
               onBlur={() => handleBlur("email")}
               autoComplete="email"
+              aria-invalid={!!errors.email}
               required
               disabled={isSubmitting}
             />
@@ -207,6 +209,7 @@ const SignUpForm = () => {
               onChange={(e) => handleChange("password", e.target.value)}
               onBlur={() => handleBlur("password")}
               autoComplete="new-password"
+              aria-invalid={!!errors.password}
               required
               disabled={isSubmitting}
             />
@@ -223,6 +226,7 @@ const SignUpForm = () => {
                 onChange={(e) => handleChange("terms", e.target.checked)}
                 disabled={isSubmitting}
                 required
+                aria-invalid={!!errors.terms}
               />
               I agree to the Terms & Conditions
             </label>
